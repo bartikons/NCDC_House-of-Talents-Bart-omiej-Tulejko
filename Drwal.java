@@ -1,4 +1,3 @@
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -7,17 +6,29 @@ import java.util.Arrays;
 public class Drwal {
 
     public static void main(String[] args) {
+
         if (args.length != 5) {
             klops();
         }
         if (args[2].length() != 1) {
             klops();
         }
-        int xStart = Integer.parseInt(args[0]);
-        int yStart = Integer.parseInt(args[1]);
-        char kolor = args[2].charAt(0);
-        int szerokosc = Integer.parseInt(args[3]);
-        int wysokosc = Integer.parseInt(args[4]);
+        int xStart=0 ;
+        int yStart=0 ;
+        char kolor='*' ;
+        int szerokosc=0 ;
+        int wysokosc=0;
+        try {
+        
+        xStart = Integer.parseInt(args[0]);
+        yStart = Integer.parseInt(args[1]);
+        kolor = args[2].charAt(0);
+        szerokosc = Integer.parseInt(args[3]);
+        wysokosc = Integer.parseInt(args[4]);
+            
+        } catch (NumberFormatException e) {
+        klops();
+        }
         if (szerokosc != wysokosc) {
             klops();
         }
@@ -45,7 +56,7 @@ public class Drwal {
         } catch (Exception ee) {
             klops();
         }
-        koloruj(xStart - 1, yStart - 1, kolor, DrwalikFredek, wysokosc, szerokosc);
+        coloring(xStart - 1, yStart - 1, kolor, DrwalikFredek, wysokosc, szerokosc);
         System.out.println(Arrays.deepToString(DrwalikFredek).replace("], ", "\n").replace("[[", "").replace("]]", "").replace("[", "").replace(", ", ""));
 
     }
@@ -55,7 +66,7 @@ public class Drwal {
         System.exit(0);
     }
 
-    private static void koloruj(int xStart, int yStart, char kolor, String[][] DrwalikFredek, int wysokosc, int szerokosc) {
+    private static void coloring(int xStart, int yStart, char kolor, String[][] DrwalikFredek, int wysokosc, int szerokosc) {
         boolean change = true;
         String kolo = String.valueOf(kolor);
         if (" ".equals(DrwalikFredek[xStart][yStart])) {
