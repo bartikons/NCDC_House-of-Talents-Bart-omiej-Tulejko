@@ -29,7 +29,7 @@ public class Drwal {
         } catch (NumberFormatException e) {
         klops();
         }
-        if (szerokosc != wysokosc) {
+        if (szerokosc < xStart||yStart >wysokosc) {
             klops();
         }
         if (szerokosc > 50) {
@@ -58,7 +58,7 @@ public class Drwal {
         }
         coloring(xStart - 1, yStart - 1, kolor, DrwalikFredek, wysokosc, szerokosc);
         System.out.println(Arrays.deepToString(DrwalikFredek).replace("], ", "\n").replace("[[", "").replace("]]", "").replace("[", "").replace(", ", ""));
-
+        System.exit(0);
     }
 
     private static void klops() {
@@ -72,7 +72,7 @@ public class Drwal {
         if (" ".equals(DrwalikFredek[xStart][yStart])) {
             DrwalikFredek[xStart][yStart] = String.valueOf(kolo);
         } else {
-            klops();
+            return;
         }
         while (change) {
             change = false;
