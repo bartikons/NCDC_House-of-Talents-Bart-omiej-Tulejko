@@ -32,7 +32,6 @@ public class Kosmolot {
     public static void yes(int sizeOfShield) {
         int i = 0;
         for (; i < sizeOfShield; i++) {
-            System.out.println();
             for (int j = 0; j < sizeOfShield * (i + 1); j++) {
 
                 if (j == 0) {
@@ -52,7 +51,6 @@ public class Kosmolot {
         }
         i = i - 2;
         for (; i >= 0; i--) {
-            System.out.println();
             for (int j = 0; j < sizeOfShield * (i + 1); j++) {
                 if (j == 0) {
                     System.out.print(">");
