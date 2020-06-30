@@ -1,3 +1,4 @@
+
 public class Kosmolot {
 
     public static void no(int sizeOfShield) {
@@ -34,7 +35,7 @@ public class Kosmolot {
         for (; i < sizeOfShield; i++) {
             for (int j = 0; j < sizeOfShield * (i + 1); j++) {
 
-                if (j == 0) {
+                if (j == 0||i == sizeOfShield - 1 && j-i==sizeOfShield * (i)) {
                     System.out.print(">");
                 } else if (i == sizeOfShield - 1 || j % (i + 1) != i && (i + 1) != 1) {
                     System.out.print("*");
